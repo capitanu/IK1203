@@ -1,0 +1,309 @@
+#+Calin Capitanu
+
+* Recitation 1
+** 1)
+*** a)
+A communication protocol is a standardized set of rules for communication between
+ two specific layers in a network: either application layer, link layer, network layer or other.
+Message formats, message types, message exchange, standards
+** b) 
+Application Layer – HTTP, FTP
+Transport Layer – UDP, TCP
+Network Layer – IP, Routing
+Link Layer – Ethernet, IEEE 802.11 WLAN
+Physical Layer – bit coding, TP Category 6
+** c)
+Link Layer
+** d) 
+A router main purpose is to receive packages and then it does two things with it:
+firstly, it needs to figure out where to send it next by unpacking the message and reading its header – this is routing and then the second part is forwarding which means actually sending it on the link.
+** e)  
+The transport layer provides protocols for transfer between applications on different hosts. These protocols run on end systems – hosts and they are meant for processes.
+
+** 2)
+Sending an email from a client host to another uses all the 5 layers of the IP. The message is first using SMTP, then there is a transport layer protocol which usually is TCP, the network layer then uses routing and IP addressing, on the link layer there can be a lot of different protocols and then there is the physical layer which depends on what link layer protocol is being used. The email now has headers for these protocols, and then is send to usually the home router. This message is being split into packets and the link layer switch then receives it, routes it and then forwards it towards the server host of the application that he is using. On the way, there can be a lot of protocols for the link layer, such as IEEE 802.11 or Ethernet. Packets pass through tens of routers to get to the host server and from there, the same procedure is done from the server end system to the other user’s mail server and from there the second user’s client end system asks his mail server for updating his inbox.
+** 3)
+*** a)
+ SMTP is the protocol used for email transfer. The transfer layer uses TCP most probably.
+*** b)
+2.5 miliseconds FOR A SMTP MESSAGE (not for the mail)
+Count messages for an email being sent: 
+HELO, 250,
+ MAIL FROM:, 250,
+ RCPT TO, 250,
+ DATA, 354,
+ mail, 250,
+ QUIT, 250
+ x 2.5 miliseconds = 30 ms
+*** c)
+3 more RCPT TO and 250 answer so result from b + 5x3 = 45 ms
+** 4)
+ It is possible to send a line with a single period, but in order to do so, the line has to actually contain two dots, hence the protocol will take care and remove one for us.
+** 5) 
+*** a)
+http://www.kth.se/
+*** b)
+Definitely
+*** c)
+60044 Bytes
+*** d)
+Client’s request is  to keep the connection open and direct to the server while the server 
+Connection property says that it closes down the connection.
+*** e)
+The returned object starts a line break and then “<htm” which is the beginning of an html tag.
+
+** 6)
+*** a)
+Tit-for-tat in BitTorrent protocol means that at every 10 seconds the top 4 peers of everyone 
+update, and then one downloads the rarest packages from those peers and give back some other packages 
+that are missing, so creating a hierarchy of best peers.
+*** b) 
+Rarest chunk first means that a peer asks for missing chunks and takes the one that 
+he can barely find among other peers. This indeed helps the equilibrium of the whole 
+data set that is being stored. Thus, no packages will be lost if a peer disconnects, 
+as they are evenly distributed among other peers. No package is in danger of extinction.
+
+** 7)
+*** a)
+First things first, the requesting PC asks the local DNS server to fetch the IP address of 
+the domain he is searching for. As it is represented, the local DNS server does not have the 
+IP of that specific domain stored in local cache, thus it has to go all the way up to root DNS to 
+ask for that domain. They give an answer regarding who to ask for that address afterwards. 
+A top level domain is then interrogated for the IP of the domain, but the reply is still not the IP of that domain, 
+but the IP of the authoritative DNS server for “fws.com” that the local DNS server then asks for the IP of the specified domain and receives it back.
+*** b)
+The one that the client does to the local DNS is recursive as the DNS Server fetches the IP address further, 
+but the local DNS does it in an iterative way because he is sent from one server to another, but he has to do all the work.
+*** c)
+Definitely it is possible, but he has to most probably buy that second domain and configure it to point towards the same IP address.
+*** d)
+dude wtf iz up?
+
+** 8)
+IPv4 – Type: A
+IPv6 – Type: AAAA
+TCP port: Nope
+Incoming/Outgoing mail server -  Type: MX
+Authoritative name server – Type: NS
+Web server – Nope
+Canonical name – Type: CNAME
+Host name – Type: A
+Course book: 
+** P2.
+First packet: N* L/R
+Second packet: N * L/R + L/R
+Thrid packet: N * L/R + 2 * L/R
+...
+Last packet: N * L/R + (P - 1) * L/R
+
+Add them up
+
+P * N * L/R + (P - 1) * P /2 * L/R
+P * L/R * (N + (P-1)/2)
+** P6. 
+*** a)
+Dprop = distance / speed = m / s
+*** b)
+Dtrans = L (bits) / R (bits/second)
+*** c)
+TotalD = m/s + L/R
+*** d)
+Right at that moment, the last bit of the packet has left host A on the link.
+*** e)
+Still on the link
+*** f)
+At the host B.
+*** g)
+m /s = L / R => m = s * L / R = (2.5 * 10^8 * 120) / (56 * 10^3) = 535714.2857 meters
+
+** P7.
+R = 2 Mbps = 2 * 10^6 bps
+Dprop = 10 msec = 10 * 10^(-3) sec
+64 kbps = 64 * 10^3 bps
+56 byte packet = 56 * 8 bits packets 
+Retarded question it doesn’t make sense, but:
+
+T = 56 * 8 / 64 * 10^3 + 56 * 8 / 2 * 10^6 + 10 * 10^(-3)
+T = 0.007 + 0.000224 + 0.01 = 0.017224
+
+** P10. 
+Ttrans = L / R = 1500 * 8/ 4 * 10^6 = 3 ms
+T1 – T2 = 6 – 2 = 4ms
+
+There will be no queueing.
+
+** P11. 
+T1 = L/R1 + d1
+T2 = L/R2 + d2
+
+d = T1 – T2 = L/R1 or T1 – T2 = L/R2
+
+** P13.
+*** a)
+((N -1) * L) / (R * 2)
+*** b)
+The same
+* Recitation 2
+** 1) 
+*** a) 
+If an ack is delayed more than 500 ms, the window frame of the TCP sender will be restarted to 1 and it will have a slow start phase.
+** b)
+The receiver will now ACK the latest package: that is, the biggest sequence number. The sender will know that that packet and the one before have been received.
+
+** 2)
+*** Flow control
+Flow control is something that TCP uses to make sure that it will not overwhelm the receiver. That is, the receiver controls how much data the sender will send, in order not to lose packets (due to overfilling the receiving buffer). The receiver updates the sender with the amount of data it can receive, thus the sender is keeping this sliding window frame.
+** Congestion Control
+Congestion control is a meant for not overwhelming the network. This is done by gradually increasing the window frame, and in case there will be a timeout or duplicate ACK's, the sender readjust the sending window frame.
+** 3)
+*** a)
+65 535 * 8 / 20 * 10^(-3) = 26,214 Mbit/s
+** b) 
+2.6%
+** 4)
+35 ms
+** 5)
+*** a) 
+[1,6] and [23,26] for slow start
+[6,16] and [17,23] for congestion avoidance
+
+** b)
+three acks bcs MSS is not set to 1
+** 6)
+*** a)
+Drawing is izi
+
+#+Recitation 3
+
+* Recitation 3
+** 1)
+*** a) 
+ 130.237.160.32 port P2
+*** b)
+ 130.237.160.33 port P2
+*** c) 
+ 130.237.160.132 port P1
+*** d)
+ 130.237.160.131 port P1
+*** e)
+ 130.237.160.32 port P2
+** 2)
+*** a) ARP A:
+10.0.1.1/MACa
+10.0.1.2/MACb
+10.0.1.3/MACc
+10.0.1.4/MAC1-1
+#+wrong 10.0.2.1-5/MAC1-1
+*** b) Routing table
+| Destination |  Network mask | Gateway  | Interface(port number) |
+|-------------+---------------+----------+------------------------|
+| 10.0.1.0/24 | 255.255.255.0 | -        | P1                     |
+| 10.0.2.0/24 | 255.255.255.0 | -        | P2                     |
+| 0.0.0.0     |       0.0.0.0 | 10.0.2.5 | P3                     |
+
+*** c) IP and MAC
+#+Packet when received:
+Source IP: 10.0.1.1
+Destination IP: 10.0.2.3
+Source MAC: MACa
+Destination MAC: MAC1-1
+
+#+Packet when sent:
+Source IP: 10.0.1.1
+Destination IP: 10.0.2.3
+Source MAC: MAC1-2
+Destination MAC: MACe
+
+
+*** d)
+The IP addresses of each computer will need to change as they do not belong to the subnet anymore. 
+The switch needs to remember some MAC addresses.
+Default gateway will be R2.
+
+*** e)
+ADV: Using the router, the table (in this case routing table) is shorter than the ARP table that the switch would need to use.
+Plus scalability.
+DIS: Once the ARP table would be configured, it would be faster than using a router.
+** 3)
+| Network | Next Router | Distance |
+|---------+-------------+----------|
+| N1      | R2          |        4 |
+| N2      | R3          |        5 |
+| N3      | R3          |        6 |
+| N4      | R2          |        6 |
+| N5      | R2          |        6 |
+| N7      | R4          |        2 |
+| N8      | R3          |        2 |
+
+
+** 4)
+All go to infinity and start relaxing each neighbour.
+** 5) 
+*** a)
+A frame need to cover the whole length of the medium during trnasmission in order to make sure that all the other devices can realize that I am sending and avoid collision.
+This means that the shortest frame (64 bytes) needs to cover the RTT during transmion.
+RTT = 64*8/10*1000000
+Frame/Bandwidth = 2MaxRTT
+MaxRTT = Length / Propagation Speed (usually speed of light)
+*** b) 
+Bandwidth = 1 gigabit/s = 10^9 bit/sec
+RTT = 64*8/10^9 = 0,000000512 = 0,512 microS = 0.512 * 10^(-6) sec
+L/v = RTT => L = v*RTT
+L = 51.2*3/2 meters
+
+
+** 6)
+
+*** Checksum
+**** a)
+Checksum applies a method on all the bits in the packet (usually adds all of them up) and saves the result in the checksum box. If the receiver applies the same method and doesn't get the same answer, there is an error.
+**** b)
+Checksum is easy to compute, but if there are more mistakes in the data, even though it is a low chance, it may pass as correct even if it is not.
+**** c)
+It is used in IPv4. TCP and UDP also use this method.
+*** Parity
+**** a)
+Parity method adds another bit to the end of a message to make sure that the number of 1's is even. That is, the added bit is either 0 or 1. If the received message does not have an even number of 1's, the receiver knows there is a bit error.
+
+**** b) 
+If there is more than one bit error, this can easily fail, but on the other side, checking and transmissions don't take much time/memory.
+**** c) 
+Used at link layer usually, in serial communcation. Can be found in computer memory protection as well.
+*** Cyclic Redundancy checks (CRC)
+**** a)
+Data is written as a polynomial and it is divided by a generator polynomial, then the remainder is also send with the data. The receiver can use data and the remainder and apply the same formula to see if it matches.
+**** b)
+Usually hard to compute but there is a low chance of failing. It can also detect burst errors up to usually 32 bits.
+**** c)
+Ethernet and wireless LAN use this method. Archiving programs such as WinZip uses this.
+* Recitation 4
+** 1)
+*** a)
+**** Switch 1
+ | MAC       | IP       | Port  |
+ |-----------+----------+-------|
+ | MACclient | ClientIP | port1 |
+ | MACrouter | ServerIP | port2 |
+
+**** Switch 2
+ | MAC       | IP       | Port  |
+ |-----------+----------+-------|
+ | MACserver | ServerIP | port2 |
+ | MACrouter | ClientIP | port1 |
+*** b)
+**** Client
+| IP Adress   | MAC Address     |
+|-------------+-----------------|
+| Router left | Router left MAC |
+**** Router left
+| IP Adress | MAC Address |
+|-----------+-------------|
+| Client IP | Client MAC  |
+**** Router right
+| IP Adress | MAC Address |
+|-----------+-------------|
+| Server IP | Server MAC  |
+**** Server
+| IP Adress    | MAC Address      |
+|--------------+------------------|
+| Router right | Router right MAC |

@@ -1,0 +1,349 @@
+#+TITLE: IK1203 Networks and Communication
+#+DATE: 2019-03-13
+* Instructions
+The exam consists of two sections: Section A (20 points) and Section B (16 points). Section
+A consist of 20 multiple choice questions, where every question has exactly one correct
+alternative. Each correct answer is worth one point. If you do not score at least 14 points
+on Section A, Section B will not be marked.
+Submit your answers for Section A on the separate solution sheet labelled ”Section A
+Solution Sheet”.
+Important: the exams are individual, and marked with a grading code that you should
+copy to the solution sheet. It is very important that you copy the grading code to your
+solution sheet; if you do not, Section A of your exam cannot be graded.
+Section B consist of questions (typically worth 2 to 6 points each) where answers are
+handed in on separate sheets, one answer per sheet. Label each sheet with the question
+number and your name. Keep your solutions short and to the point.
+This exam consists of 9 pages. Before you start, make sure that you have all pages.
+Grading
+The preliminary grading scale for this exam is as follows:
+• grade A, at least 14 points on Section A, and 13 points on Section B
+• grade B, at least 14 points on Section A, and 10 points on Section B
+• grade C, at least 14 points on Section A, and 6 points on Section B
+• grade D, at least 13 points on Section A
+• grade FX, at least 12 points on Section A (changed to grade E upon completion of
+complementary assignment)
+• grade F, less than 12 points on Section A
+Tools
+No tools allowed.
+Grading code 1234
+Copy the grading code to “Section A Solution Sheet”, under “2 Grading code”
+iSection A
+Grading code 1234
+2019-03-13
+* Section A
+** 1.
+Which of the following is a function of the network layer in the Internet model?
+
+A. Congestion control
+
+B. Routing
+
+C. Flow control
+
+D. Medium access control
+
+** 2.
+
+Consider a transfer of a message over a 10 km long link. The signal’s propagation speed
+over the link is 2 × 10 ^ 8 m/s. The link bitrate is 400 Mb/s, and the size of the message
+is 1500 byte. How long does it take from that the sender starts sending the message
+until the receiver has received the entire message?
+5 + 
+A. 30 μs 
+
+B. 50 μs
+
+C. 60 μs
+
+D. 80 μs
+
+** 3.
+Which organization develops Internet protocol standards?
+
+A. Internet Engineering Task Force (IETF)
+
+B. Institute of Electrical and Electronics Engineers (IEEE)
+
+C. Internet Corporation for Assigned Names and Numbers (ICANN)
+
+D. International Organization for Standardization (ISO)
+** 4.
+A client requests a web page from an HTTP server. The page consists of nine parts:
+two text objects and seven advertisements (image objects). From that the client sends
+its first request to the server, how many HTTP responses will the client receive in total
+from the server?
+
+A. One
+
+B. Nine
+
+C. Ten
+
+D. Eighteen
+
+** 5.
+Applications need different kinds of services from the underlying protocol layer, de-
+pending on the demand of the application. Consider an email application. If you rank
+the following services by their importance for the application, which of the following
+would be the most important (or most probable) service for this application to require
+from the protocol layer below?
+
+A. Low latency (delay).
+
+B. Guaranteed minimum capacity.
+
+C. Reliable data transfer.
+
+D. Flow control.
+
+** 6.
+Suppose that you use DNS (Domain Name System) to translate a domain name to an
+IP address. You send a DNS query to a DNS server, and tell the server that it is a
+recursive query. The server does not know the answer to your query. What does the
+server do?
+
+A. It responds that the domain name could not be found.
+B. If responds with whatever it knows about the domain name.
+C. It finds out the answer for you, by asking other DNS servers.
+D. It responds with the name and IP address of the authoritative DNS server for
+the domain.
+
+** 7.
+A local Domain Name System (DNS) server stores the answers it gets for its questions
+in a cache. It could happen that an answer in the cache gets invalid, for instance if the
+DNS database is updated in the server that answered the question. How is this dealt
+with?
+
+A. This situation can always occur, therefore there is a limit for how
+long an answer may be stored in the cache.
+B. A server that answers a question guarantees that the answer will not change
+during the limited period of time when the answer is stored in the cache.
+C. Before a local server uses an answer from its cache, the local server checks
+with the server from which it got the answer in the first place, that the answer
+still is valid.
+D. If a server needs to update its DNS database, it informs all local DNS servers
+that have copies in their caches that the entry is being updated.
+
+** 8.
+Which of the following statements about TCP is (most) correct?
+
+A. TCP cannot be used in combination with IP multicast.
+B. TCP provides a one-way connection between two processes.
+C. TCP accumulates data from the application and decides how large
+segments to send.
+D. All segments sent over a TCP connection take the same path trough the
+network between sender and receiver.
+
+** 9.
+Which of the following statements about TCP congestion control is (most) correct?
+
+A. During the congestion avoidance phase, the congestion window in-
+creases linearly in size.
+B. With fast retransmit and fast recovery a retransmission is made for every
+duplicate ACK.
+C. During the slow start phase, the congestion window increases exponentially
+in size, and the increase does not stop until the window reaches the receiver-
+advertized window size.
+D. The congestion window increases in size until the sender gets an ACK timeout.
+
+** 10.
+Which of the following statements about UDP is (most) correct?
+
+A. UDP always protects data with a checksum.
+B. UDP does not guarantee that datagrams arrive to the receiving
+application in the correct order.
+C. UDP never protects data with a checksum.
+D. UDP provides a connection-oriented unreliable service.
+
+** 11.
+Assume we have a transport level connection with a capacity of 10 Mb/s and that the
+connection between sender and receiver has an RTT of 8 ms. Which is the optimal
+window size the sender should use?
+
+A. 10000 byte.
+B. 20000 byte.
+C. 5000 byte.
+D. 80000 byte.
+
+** 12. 
+MAC addresses are used for addressing by link layer protocol such as Ethernet and
+Wireless LAN. Which of the following statements about MAC addresses is false?
+
+A. MAC addresses are permanent, assigned by the manufacturer. They will not
+change if a device is moved.
+B. MAC addresses are assigned to network interfaces, so a device with multiple
+network interfaces will have multiple MAC addresses.
+C. MAC addresses are organized hierarchically. A bit-mask (network
+mask) determines what addresses are present on a network.
+D. Applications do not need to be aware of MAC addresses.
+
+** 13.
+An Ethernet switch has an address table consisting of MAC addresses (link layer ad-
+dresses) and port numbers. Assume that an Ethernet frame arrives that is destined to a MAC address not in the table. What will the switch do?
+
+A. Send the frame to all ports, except the one on which the frame was
+received.
+B. Send an error message ”Destination unreachable” to the source of the frame.
+C. Send an ARP (Address Resolution Protocol) message to ask for the MAC
+address.
+D. Send the frame to the broadcast address (FF:FF:FF:FF:FF:FF).
+
+** 14.
+Consider the network in the figure below consisting of two switches and four computers (A to D). The computers’ MAC addresses are shown. Suppose that computer B sends a message to computer A. Computer A answers with a message to computer B. Assuming that the address tables initially are empty, what MAC addresses will be in the address table of the switch to the right after the two messages?
+
+A. de:ed:98:12:ac:dc och fe:ed:11:22:ab:ba
+B. fe:ed:11:22:ab:ba
+C. de:ed:98:12:ac:dc
+D. None
+
+** 15.
+An important component in a wireless LAN (WLAN) is how to prevent different units connected to the same access point from disturbing each other. Consider a network with one access point and several wireless devices. Which of the following statementsis correct?
+
+A. If a collision occurs, all units involved will discover this and immediately abort
+their transmissions.
+B. The access point assigns different radio channels to different units to reduce
+the risk that they disturb each other.
+C. A successful transmission from a unit to the access point is con-
+firmed with an ACK frame from the the access point. In case of a
+collision, there will be no ACK frame.
+D. Each device is assigned a certain priority by the access point. The priority
+defines the order in which the units can transmit to the access point.
+
+** 16.
+Consider an access point that connects a wireless network (WLAN) and a wired network (Ethernet). What is true?
+
+A. The access point is a router that forwards frames with IP packets between
+the wireless network and the Etnerhet.
+
+B. A device that sends a frame from the Ethernet to a device on the
+WLAN does not need to specify that the frame should be sent via
+the access point.
+
+C. An access point is ”transparent”, in the sense that it does not modify the
+frames that are sent between the wireless network and the Ethernet.
+
+D. An access point coordinates the communication on both sides (wireless and
+wired) and therefore prevents collisions from happening.
+
+** 17.
+One of the following statements about ICMP is incorrect. Which one?
+
+A. Each time a router drops an IP packet, it sends an ICMP error
+message to the source of that packet.
+
+B. ICMP does not use a transport protocol, so ICMP messages are encapsulated
+directly in IP.
+
+C. A router can send an ICMP message that says that the destination address
+cannot be reached.
+
+D. If a router detects TTL = 0, it will send an ICMP error message back to the
+source of that packet.
+
+** 18.
+IP address 130.237.15.74 belongs to a host on a subnet with the netmask 255.255.255.240.
+Which of the following statements is correct?
+
+A. 30 different IP addresses can be given to hosts connected to the subnet.
+
+B. The subnet is 130.237.15.64/28.
+
+C. The broadcast address on the subnet is 130.237.15.127.
+
+D. The subnet is 130.237.15.32/28.
+
+** 19.
+Which of the following statements about distance vector routing is (most) correct?
+
+A. BGP uses Dijkstra’s algorithm to calculate the shortest path between nodes
+in the network.
+
+B. In OSPF, a node regularly sends its distance vector to its neighbor nodes.
+
+C. In RIP, a node regularly sends its distance vector to its neighbor
+nodes.
+
+D. An advantage with RIP is that it scales well to large ASes (Autonomous
+Systems) with many nodes.
+
+** 20.
+DHCP (Dynamic Host Configuration Protocol) has a message called DHCP Discover.
+This message has:
+
+A. 0.0.0.0 as the source IP address, and 255.255.255.255 as the desti-
+nation IP address.
+
+B. 0.0.0.0 as the source IP address, and 0.0.0.0 as the destination IP address.
+
+C. 255.255.255.255 as the source IP address, and 0.0.0.0 as the destination IP
+address.
+
+D. 255.255.255.255 as the source IP address, and 255.255.255.255 as the destina-
+tion IP address.
+* Section B
+
+** 1.
+A client establishes a TCP connection to a server to transfer 64 kB of data. The one-way
+delay is 2 ms and the advertized receiver window is 16 kB. Assume an initial congestion
+window of 2 kB. There is no congestion in the network and the transmission time is
+negligible. The time it takes to establish a connection should however be considered.
+Calculate the total transfer time.
+(3 p)
+
+** 2. 
+Consider the network in the figure below where all links are Ethernet links. The network
+consists of six computers (A to F ), two routers (R 1 and R 2 ) and three switches (S 1 to
+S 3 ). Assume that intially all ARP and switch tables are empty.
+*** (a) 
+Computer F is about to send an IP packet to B and therefore first sends an ARP
+request. What is F asking for?
+*** (b)
+The ARP request is sent in an Ethernet frame. What MAC address does F use as
+destination for the Ethernet frame?
+*** (c)
+Specify the device (or devices) that will get the ARP query.
+*** (d)
+The IP packet is sent to B, which then responds with another IP packet to F .
+Specify the content of the switch table in switch S 1 after the second IP datagram
+is transferred.
+Ports are not named in the figure. If you need to name ports in your solution, use
+clear and unambigious names.
+
+** 3.
+Suppose that you come to KTH and connect to the wireless network. Then you open
+your web browseer and type in the domain name ”hugo.z.hackenbush” in the naviga-
+tion field. (Here we assume that someone has registered ”hackenbush” as an top-level
+domain, presumably through the new gTLD program for generic top-level domains.)
+The first that then happens is that your web browser sends a DNS query to translate
+the domain name to an IP address.
+(2+2 p)
+
+*** (a)
+Four different DNS servers will be involved. For each of the four servers, describe
+the server and the function it has in the DNS system, and describe what answer
+it gives as a result of your question.
+
+*** (b)
+DNS uses UDP as transport protocol. UDP provides the service to transfer a
+message (datagram) with a limited maximum size. The limit can be as low as
+512 byte. (In contrast to TCP, which can transfer a data stream without size
+limitations.) Suppose that the size of the data that DNS needs to transfer as a
+message exceeds UDP’s limit. What happens then? Is it possible to send larger
+messages without modifying the DNS protocol? Motivate your answer! (You do
+not need to know any further details of the DNS protocol to answer the question.)
+
+** 4.
+Consider the network graph in the figure below with given link costs.
+Calculate by using Dijkstra’s algorithm the best paths (paths with least costs) from
+node A to all other nodes in the network. Each step in the algorithm should be shown.
+Use the following table template, which you should redraw and fill out.
+
+** 5.
+Consider the following forwarding table.
+
+*** (a)
+Specify next hop and outgoing interface for each of the following destination ad-
+dresses: 192.16.8.132, 192.16.7.13, 194.17.22.12 och 193.14.5.198.
+*** (b)
+The network administrator is thinking about aggregating the two subnets 192.16.7.0/24
+and 192.16.8.0/24 to 192.16.7.0/23. Is this a good idea? Explain your answer.

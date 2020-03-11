@@ -1,0 +1,99 @@
+#+AUTHOR: Calin Capitanu
+#+TITLE: Exam 05/06/2018
+#+DATE: 10/03/2020
+
+* Section A
+| NR | A | B | C | D |       |
+|  1 | - | B | - | - |       |
+|  2 | - | - | C | - |       |
+|  3 | - | - | C | - |       |
+|  4 | A | - | - | - |       |
+|  5 | - | - | C | - |       |
+|  6 | - | - | C | - |       |
+|  7 | - | B | - | - | WRONG |
+|  8 | - | B | - | - |       |
+|  9 | - | - | - | D |       |
+| 10 | - | B | - | - |       |
+| 11 | - | - | - | D |       |
+| 12 | - | - | C | - |       |
+| 13 | A | - | - | - |       |
+| 14 | - | - | C | - |       |
+| 15 | A | - | - | - |       |
+| 16 | A | - | - | - |       |
+| 17 | - | B | - | - |       |
+| 18 | A | - | - | - |       |
+| 19 | A | - | - | - |       |
+| 20 | - | - | - | D |       |
+
+* Section B
+** 1)
+TCP congestion control is performed by the sender, but using information from the receiver. 
+The first phase is the slow starting phase where the MSS is set to 1.
+The growth is exponentional (doubles every other time).
+The sender does send ack's for every packet received, but if he did not receive a packet, he will send ack's for the last received packet in order.
+If the sender receives duplicate (or for fast recovery they use triple) ack's, the window size reduced and there is a phase of linear growth. 
+The window size is remembered, and while growing, if duplicate ack's are received, the window size is reduced to that remembered phase. 
+If a timeout occurs, the MSS is reset to 1.
+
+** 2)
+TIME:
+9 ms =3 ms + 3ms + 3ms for the connection 
+2kB = 6 ms
+4kB = 6 ms
+8kB = 6 ms
+16kB = 6 ms
+16kB = 6 ms
+2kB = 3ms
+ or 45 if sender also wants the final ACK
+TOTAL = 42 ms
+
+** 3)
+
+These servers are spread around the world and use the same IP address because they are the only instance to address in in order to transate a DNS record (or redirect to a TLD rather). 
+These need to be in fixed and well known addresses, thus local DNS servers can know where to refer to, in case they need it. 
+The way this works is as follows: once a request is sent to a server, routers always try to take the shortest path, so they will go to the closest server eitherway.
+A disadvantage to this is the fact that whoever is responsible of thse NEEDS to make sure that they will answer in exactly the same way. Secondly, there is the risk that a server might get more requests than another if the network routers on the way are configured in a badly manner and servers are decently close.
+An advantage is of course the fact that DNS servers only need to know one IP address and the network will figure out what server to access on its own.
+
+** 4)
+   
+|      Address |      Next Hop | Interface |
+|--------------+---------------+-----------|
+|  192.16.7.14 | 193.14.15.193 | m1        |
+| 192.16.7.212 |  111.15.17.32 | m0        |
+|  194.17.22.4 |  111.30.31.18 | m0        |
+| 193.14.5.188 |  193.14.5.188 | m2        |
+
+** 5)
+*** a)ARP A
+
+| IP Address | MAC Address |
+|------------+-------------|
+|   10.0.1.2 | MACb        |
+|   10.0.1.3 | MACc        |
+|   10.0.1.4 | MAC1-1      |
+|   10.0.1.1 | MACa       |
+
+*** b)
+
+| Destination |  Network Mask | Gateway  | Interface |
+|-------------+---------------+----------+-----------|
+|    10.0.2.0 | 255.255.255.0 | -        | p2        |
+|    10.0.1.0 | 255.255.255.0 | -        | p1        |
+|     0.0.0.0 |       0.0.0.0 | 10.0.2.5 | p2        |
+
+*** c)
+
+Received by R1:
+
+IP src: 10.0.1.1
+IP dst: 10.0.2.3
+MAC src: MACa
+MAC dst: MAC1-1
+
+Sent by R1:
+
+IP src: 10.0.1.1
+IP dst: 10.0.2.3
+MAC src: MAC1-2
+MAC dst: MACe

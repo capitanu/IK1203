@@ -1,0 +1,90 @@
+#+AUTHOR: Calin Capitanu
+#+TITLE: Exam 2019-03-13
+#+Date: 10-03-2020
+
+* Section A
+| NR | A    | B | C | D |
+|----+------+---+---+---|
+|  1 | -    | B | - | - |
+|  2 | -    | - | - | D |
+|  3 | A    | - | - | - | 
+|  4 | A    | - | - | - | WRONG C
+|  5 | -    | - | C | - |
+|  6 | -    | - | C | - |
+|  7 | A    | - | - | - |
+|  8 | A    | - | - | - | WRONG C
+|  9 | A    | - | - | - |
+| 10 | -    | B | - | - |
+| 11 | A    | - | - | - |
+| 12 | -    | - | C | - |
+| 13 | ???A | - | - | - |
+| 14 | -    | - | - | D | WRONG C
+| 15 | -    | - | C | - |
+| 16 | -    | B | - | - |
+| 17 | A    | - | - | - |
+| 18 | -    | B | - | - |
+| 19 | -    | - | C | - |
+| 20 | A    | - | - | - |
+
+-- http request for x objects:
+response = http ok + nr of objects = x + 1
+
+--TCP CAN BE USED WITH IP MULTICAST
+TCP decides how large segments to send
+
+-- ARP broadcast does not exist, instead a switch sends the packet to all the ports
+
+-- Switch saves MAC address when receiving a packet (saves sender MAC address)
+* Section B
+
+** 1)
+RTT = 4 ms
+rwnd = 16kB
+MSS(0) = 2kB
+Total = 64 kB
+
+6 ms = connection time
+4 ms = 2kB
+4 ms = 4 kB
+4 ms = 8 kB
+4 ms = 16 kB
+4 ms = 16 kB
+4 ms = 16 kB
+2/4 ms = 2 kB
+
+Total time = either 38 or 40 ms (if we consider the last ACK to the sender 34 if not, 32)
+
+** 2)
+
+*** a)
+F asks for the MAC address of R2
+*** b)
+F uses FF:FF:FF:FF:FF:FF
+*** c)
+Hose E and router R2 will get it.
+*** d)
+
+Switch table:
+MACb / port south
+MAC R1 / port east
+** 3)
+*** a)
+Local DNS server: KTH's local DNS server checks if it has the request in the cache, if not, asks ROOT DNS server
+Root DNS server: Reads the request and sends the location of the TLD DNS Server that handles that top level domain.
+TLD Server: Knows the location of the Authorative DNS Server.
+Authorative DNS Server: Answers with the correct IP address.
+
+*** b)
+
+UDP CAN'T TRUNCATE MESSAGES!!!
+It is not possible.
+** 4)
+** 5)
+*** a)
+192.16.8.132 - 111.15.17.32/m0
+192.16.7.13 - 193.14.5.193/m1
+194.17.22.12 - 111.30.31.18/m0
+193.14.5.198 - 193.14.5.198/m1
+*** b)
+
+No because the upper bits will not be the same.

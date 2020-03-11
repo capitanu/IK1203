@@ -1,0 +1,78 @@
+#+AUTHOR: Calin Capitanu
+#+TITLE: Exam 05/06/2018
+#+DATE: 07/03/2020
+
+* Section A
+| NR | A | B | C | D |       |
+|----+---+---+---+---+-------|
+| 01 | - | - | - | D |       |
+| 02 | - | B | - | - |       |
+| 03 | - | B | - | - |       |
+| 04 | - | - | C | - |       |
+| 05 | - | - | - | D |       |
+| 06 | - | - | C | - |       |
+| 07 | - | - | - | D |       |
+| 08 | - | B | - | - |       |
+| 09 | - | - | C | - |       |
+| 10 | - | - | - | D |       |
+| 11 | - | B | - | - |       |
+| 12 | - | - | C | - |       |
+| 13 | - | B | - | - | WRONG |
+| 14 | - | - | C | - |       |
+| 15 | - | - | C | - |       |
+| 16 | - | - | - | D |       |
+| 17 | - | - | - | D | WRONG |
+| 18 | - | - | C | - |       |
+| 19 | - | - | C | - |       |
+| 20 | A | - | - | - |       |
+
+* Section B
+** 1)
+Data = 48 kB = 48*1000*8 bits
+Propagation delay = 5 ms
+RTT = 10ms
+rwcd = 16 kB = 16*1000*8 bits
+CWND = 1 kB = 8*1000 bits
+/////////
+Step 1: 1 kB - 10 ms
+Step 2: 2 kB - 10 ms
+Step 3: 4 kB - 10 ms
+Step 4: 8 kB - 10 ms
+Step 5: 16 kB - 10 ms
+Step 6: 16 kB - 10 ms
+Step 7: 1kB - 5 ms or 10 ms if we want to know that it has been ack-ed.
+
+Solution: 65ms for the whole transfer time
+** 2)
+*** a)
+Most ISP's have a local DNS server that caches recent queries. Moreover, local DNS servers mostly have the locations of TLD servers, thus, they don't need to ask root servers so often. Actually, it is pretty rare that a root server is asked for the location of a TLD DNS server.
+*** b)
+DNS has its own method. It basically uses timeout.
+** 3)
+| Destination Network | Next Router | Distance |
+|---------------------+-------------+----------|
+| N1                  | R2          |        4 |
+| N2                  | R3          |        5 |
+| N3                  | R3          |        6 |
+| N4                  | R2          |        6 |
+| N5                  | R2          |        6 |
+| N6                  | R4          |        2 |
+** 4)
+| step | N'    | D(B),p(B) | D(C),p(C) | D(D),p(D) | D(E),p(E) |
+|------+-------+-----------+-----------+-----------+-----------|
+|    0 | A     | 3,A       | -         | -         | 2,A       |
+|    1 | AE    | -         | -         | 5,E       | -         |
+|    2 | AEB   | -         | 6,B       | 4,D       | -         |
+|    3 | AEBD  | -         | 5,D       | -         | -         |
+|    4 | AEBDC | -         | -         | -         | -         |
+
+** 5)
+*** a)
+Criteria 1: Handling big amount of clients at a time.
+Criteria 2: Handling errors in terms of overloading the server.
+*** b)
+The first server architecture can handle unlimited amount of clients at a time (refering to the way it is implemented). Of course there are other factors that restrict it from handling unlimited amount of clients: bandwidth, network, number of processors on the server. But, on the other hand, handling the overloading of the server is pretty demanding at this point. It could be that a server receives thousands of TCP messages that it needs to handle, and it will just create as many processes that will not have the processing power to deliver, thus could destroy the server.
+
+The second implementation of the server is only able to handle as many clients in parallel as the number of processes it has in the pool. This implementation is a lot more secure as there is no way of overloading the server: more TCP requests could either be dropped (not recommended), saved in a buffer or let them be handled in the network layer (buffer messages in routers - not recommended either).
+
+The last implementation can not properly and actually (in the actual sense) handle multiple requests at the same time, but it can fake it. This system will most probably have huge problems when lots of connections are sent, but it can queue them properly and handle them one by one as soon as the system knows which need data processing. Smart system functions can also pre-process the data such that the TCP only needs to send it back when ready, but this is another implementation of the parallelization. Handling huge amount of users as an error could be solved here with huge buffers of incoming connections, but we will run into a different problem: memory.
